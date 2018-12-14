@@ -6,7 +6,21 @@ import config from './config/environment';
 const App = Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
-  Resolver
+  Resolver,
+
+  engines: {
+    foo: {
+      dependencies: {
+        services: [
+          'router'
+        ],
+
+        externalRoutes: {
+          'primary-app': 'application'
+        }
+      }
+    }
+  }
 });
 
 loadInitializers(App, config.modulePrefix);
